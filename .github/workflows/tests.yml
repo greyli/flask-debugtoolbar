@@ -32,6 +32,9 @@ jobs:
           - {name: Style, python: '3.10', os: ubuntu-latest, tox: stylecheck}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python }}
       - name: update pip
         run: |
           pip install -U wheel
